@@ -9,27 +9,53 @@
 <body>
     <header>
         <h1>Support Our Minecraft Server</h1>
-        <p>Your donations help us keep the server running and add exciting new features!</p>
+        <p>Your donations help keep the server running and add exciting new features!</p>
     </header>
 
     <main>
-        <section class="donation-form">
-            <h2>Make a Donation</h2>
-            <form id="donationForm">
-                <label for="amount">Donation Amount (INR):</label>
-                <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+        <section class="donation-options">
+            <h2>Monthly Subscriptions</h2>
+            <p>Select a monthly donation amount:</p>
+            <button onclick="processSubscription(50)">₹50 / month</button>
+            <button onclick="processSubscription(100)">₹100 / month</button>
+            <button onclick="processSubscription(200)">₹200 / month</button>
+            <button onclick="processSubscription(300)">₹300 / month</button>
+            <button onclick="processSubscription(500)">₹500 / month</button>
+            <button onclick="processSubscription(1000)">₹1000 / month</button>
+        </section>
 
-                <label for="subscription">Monthly Support:</label>
-                <input type="checkbox" id="subscription" name="subscription">
-                <span>Check to make this a monthly recurring donation</span>
+        <section class="one-time-donation">
+            <h2>One-Time Donation</h2>
+            <p>Make a one-time donation above ₹500:</p>
+            <input type="number" id="oneTimeAmount" placeholder="Enter amount">
+            <button onclick="processOneTimeDonation()">Donate Now</button>
+        </section>
 
-                <button type="button" onclick="processDonation()">Donate with Cashfree</button>
-            </form>
+        <section class="discord-ranks">
+            <h2>Discord Ranks</h2>
+            <p>Receive special Discord ranks for supporting our server!</p>
+            <ul>
+                <li><strong>₹50-₹100:</strong> Donor</li>
+                <li><strong>₹200-₹500:</strong> Donor+</li>
+                <li><strong>₹1000:</strong> Donor++</li>
+            </ul>
+        </section>
+
+        <section class="top-donors">
+            <h2>Top 5 Donors</h2>
+            <p>Our most generous supporters:</p>
+            <ol id="topDonors">
+                <li>Placeholder Donor 1 - ₹1000</li>
+                <li>Placeholder Donor 2 - ₹800</li>
+                <li>Placeholder Donor 3 - ₹750</li>
+                <li>Placeholder Donor 4 - ₹600</li>
+                <li>Placeholder Donor 5 - ₹550</li>
+            </ol>
         </section>
     </main>
 
     <footer>
-        <p>Thank you for your support!</p>
+        <p>Thank you for supporting our Minecraft community!</p>
     </footer>
 
     <script src="script.js"></script>
