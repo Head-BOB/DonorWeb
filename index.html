@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Our Minecraft Server</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Support Our Minecraft Server</h1>
+        <p>Your donations help us keep the server running and add exciting new features!</p>
+    </header>
+
+    <main>
+        <section class="donation-form">
+            <h2>Make a Donation</h2>
+            <form id="donationForm">
+                <label for="amount">Donation Amount (INR):</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+
+                <label for="subscription">Monthly Support:</label>
+                <input type="checkbox" id="subscription" name="subscription">
+                <span>Check to make this a monthly recurring donation</span>
+
+                <button type="button" onclick="processDonation()">Donate with Cashfree</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Thank you for your support!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
