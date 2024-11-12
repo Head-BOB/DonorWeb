@@ -1,78 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mallu Lifesteal Donations</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mallu Lifesteal Donation Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <header class="header">
-        <h1>Support Mallu Lifesteal Server</h1>
-        <p>Your support keeps our Minecraft server alive and thriving!</p>
-    </header>
+  <header>
+    <div class="navbar">
+      <div class="logo">Mallu Lifesteal Donation Hub</div>
+      <nav>
+        <a href="#donations">Donations</a>
+        <a href="#leaderboard">Top Donors</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section class="donation-options">
-            <h2>Choose Your Support Level</h2>
-            <div class="donation-box" onclick="processSubscription(50)">
-                <h3>₹50 / month</h3>
-                <p>Basic Supporter</p>
-            </div>
-            <div class="donation-box" onclick="processSubscription(100)">
-                <h3>₹100 / month</h3>
-                <p>Basic+ Supporter</p>
-            </div>
-            <div class="donation-box" onclick="processSubscription(200)">
-                <h3>₹200 / month</h3>
-                <p>Advanced Supporter</p>
-            </div>
-            <div class="donation-box" onclick="processSubscription(300)">
-                <h3>₹300 / month</h3>
-                <p>Advanced+ Supporter</p>
-            </div>
-            <div class="donation-box" onclick="processSubscription(500)">
-                <h3>₹500 / month</h3>
-                <p>Elite Supporter</p>
-            </div>
-            <div class="donation-box" onclick="processSubscription(1000)">
-                <h3>₹1000 / month</h3>
-                <p>Legendary Supporter</p>
-            </div>
-        </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Support the Mallu Lifesteal Minecraft Server</h1>
+      <p>Help us keep the server running smoothly and enjoy exclusive perks!</p>
+      <a href="#donations" class="cta-button">Donate Now</a>
+    </div>
+  </section>
 
-        <section class="one-time-donation">
-            <h2>One-Time Donation (₹500+)</h2>
-            <input type="number" id="oneTimeAmount" placeholder="Enter amount">
-            <button onclick="processOneTimeDonation()">Donate Now</button>
-        </section>
+  <section id="donations" class="donation-section">
+    <h2>Choose Your Subscription</h2>
+    <div class="subscription-tiers">
+      <div class="tier" id="tier1">
+        <h3>₹50 - ₹100</h3>
+        <p>Receive the "Donor" rank on our Discord server.</p>
+        <a href="#" class="donate-btn" onclick="donate('₹50-₹100')">Subscribe Now</a>
+      </div>
+      <div class="tier" id="tier2">
+        <h3>₹200 - ₹500</h3>
+        <p>Unlock the "Donor+" rank on Discord.</p>
+        <a href="#" class="donate-btn" onclick="donate('₹200-₹500')">Subscribe Now</a>
+      </div>
+      <div class="tier" id="tier3">
+        <h3>₹1000</h3>
+        <p>Achieve the legendary "Donor++" rank.</p>
+        <a href="#" class="donate-btn" onclick="donate('₹1000')">Subscribe Now</a>
+      </div>
+    </div>
+  </section>
 
-       <section class="discord-ranks">
-            <h2>Discord Ranks & Perks</h2>
-            <ul>
-                <li><strong>₹50-₹100:</strong> Donor - Access to donor-only channels, special Discord role.</li>
-                <li><strong>₹200-₹500:</strong> Donor+ - All Donor perks + extra in-game items, higher donor role.</li>
-                <li><strong>₹1000+:</strong> Donor++ - All previous perks + exclusive in-game benefits, highest donor role.</li>
-            </ul>
-        </section>
+  <section id="leaderboard" class="leaderboard-section">
+    <h2>Top Donors</h2>
+    <ul>
+      <li><span class="name">Donor1</span> - ₹1500</li>
+      <li><span class="name">Donor2</span> - ₹1200</li>
+      <li><span class="name">Donor3</span> - ₹1000</li>
+      <li><span class="name">Donor4</span> - ₹800</li>
+      <li><span class="name">Donor5</span> - ₹700</li>
+    </ul>
+  </section>
 
-        <section class="top-donors">
-            <h2>Top Donors</h2>
-            <ol>
-                <li>Steve - ₹1500</li>
-                <li>Alex - ₹1200</li>
-                <li>Creeper - ₹1000</li>
-                <li>Enderman - ₹800</li>
-                <li>Zombie - ₹750</li>
-            </ol>
-        </section>
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Have any questions? Reach out to us via our Discord server or email.</p>
+  </section>
 
+  <footer>
+    <p>&copy; 2024 Mallu Lifesteal. All rights reserved.</p>
+  </footer>
 
-    </main>
-    <footer>
-        <p>Thank you for supporting the Mallu Lifesteal community!</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script>
+    function donate(tier) {
+      Swal.fire({
+        title: 'Donation Information',
+        text: `You selected the ${tier} tier! Proceed with payment through Cashfree UPI.`,
+        icon: 'info',
+        confirmButtonText: 'Proceed'
+      });
+    }
+  </script>
 </body>
 </html>
