@@ -1,19 +1,16 @@
-function processDonation() {
-    const amount = document.getElementById("amount").value;
-    const isSubscription = document.getElementById("subscription").checked;
+function processSubscription(amount) {
+    let paymentLink = `https://cashfree.com/payment?amount=${amount}&recurring=true`;
+    window.location.href = paymentLink;
+}
 
-    if (amount <= 0) {
-        alert("Please enter a valid donation amount.");
+function processOneTimeDonation() {
+    const amount = document.getElementById("oneTimeAmount").value;
+
+    if (amount < 500) {
+        alert("Please enter an amount above ₹500 for a one-time donation.");
         return;
     }
 
-    let paymentLink = `https://cashfree.com/payment?amount=${amount}`;
-
-    if (isSubscription) {
-        // Replace with Cashfree API endpoint or link for recurring payments
-        paymentLink += "&recurring=true";
-    }
-
-    // Redirect to Cashfree payment link
+    let paymentLink = `https://cashfree.com/payment?amount=${amount}&recurring=false`;
     window.location.href = paymentLink;
 }
