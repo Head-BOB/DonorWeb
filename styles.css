@@ -1,66 +1,93 @@
-* {
-    box-sizing: border-box;
-}
-
+/* General styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: #1a1a1d;
+    color: #eaeaea;
+    text-align: center;
     margin: 0;
     padding: 0;
 }
 
-header {
-    text-align: center;
-    margin: 2em 0;
+/* Header styling */
+header h1 {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    color: #d4af37;
 }
 
-h1 {
-    color: #4CAF50;
+header p {
+    font-size: 1.2rem;
+    color: #b1b1b1;
 }
 
-main {
-    width: 100%;
-    max-width: 600px;
-    padding: 1em;
-    background-color: #fff;
+/* Donation section */
+.donation-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.donation-box {
+    background: linear-gradient(145deg, #333, #444);
+    color: #fff;
+    padding: 1.5rem;
+    width: 200px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.donation-form {
-    margin-top: 1em;
-}
-
-label {
-    display: block;
-    margin: 1em 0 0.5em;
-}
-
-input[type="number"],
-button {
-    width: 100%;
-    padding: 0.5em;
-    font-size: 1em;
-    margin-bottom: 1em;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+.donation-box:hover {
+    transform: scale(1.05);
 }
 
+/* Styling for each donation level */
+.donation-box:nth-child(1) { border: 2px solid #ffaa00; }
+.donation-box:nth-child(2) { border: 2px solid #ff8800; }
+.donation-box:nth-child(3) { border: 2px solid #ff6600; }
+.donation-box:nth-child(4) { border: 2px solid #ff4400; }
+.donation-box:nth-child(5) { border: 2px solid #ff2200; }
+.donation-box:nth-child(6) { border: 2px solid #ff0000; }
+
+/* One-Time Donation */
+.one-time-donation input, .one-time-donation button {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.one-time-donation button {
+    background: #d4af37;
+    color: #1a1a1d;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.one-time-donation button:hover {
+    background: #ffcc00;
+}
+
+/* Discord ranks and top donors */
+.discord-ranks, .top-donors {
+    margin: 1.5rem 0;
+}
+
+.discord-ranks ul, .top-donors ol {
+    list-style: none;
+    padding: 0;
+}
+
+.discord-ranks li, .top-donors li {
+    font-size: 1.1rem;
+}
+
+/* Footer */
 footer {
-    text-align: center;
-    margin: 2em 0;
+    margin-top: 2rem;
+    color: #777;
 }
