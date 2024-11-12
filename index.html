@@ -1,82 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mallu Lifesteal Donation Hub</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mallu Lifesteal Donation Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        /* Basic styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #5c6bc0;
+            font-size: 3rem;
+            margin-top: 50px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .tier, .one-time-donation {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .donate-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #5c6bc0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .donate-btn:hover {
+            background-color: #3f51b5;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+
+        .top-donors {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+
+        .top-donors h3 {
+            font-size: 1.5rem;
+            color: #5c6bc0;
+        }
+
+        .donor {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="navbar">
-      <div class="logo">Mallu Lifesteal Donation Hub</div>
-      <nav>
-        <a href="#donations">Donations</a>
-        <a href="#leaderboard">Top Donors</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Support the Mallu Lifesteal Minecraft Server</h1>
-      <p>Help us keep the server running smoothly and enjoy exclusive perks!</p>
-      <a href="#donations" class="cta-button">Donate Now</a>
-    </div>
-  </section>
+    <h1>Welcome to the Mallu Lifesteal Donation Hub!</h1>
+    <h2>Your support helps us keep the server alive and kicking!</h2>
 
-  <section id="donations" class="donation-section">
-    <h2>Choose Your Subscription</h2>
-    <div class="subscription-tiers">
-      <div class="tier" id="tier1">
+    <!-- Subscription Tiers -->
+    <div class="tier" id="tier1">
         <h3>₹50 - ₹100</h3>
         <p>Receive the "Donor" rank on our Discord server.</p>
-        <a href="#" class="donate-btn" onclick="donate('₹50-₹100')">Subscribe Now</a>
-      </div>
-      <div class="tier" id="tier2">
+        <a href="#" class="donate-btn" onclick="handleSubscriptionClick('tier1')">Subscribe Now</a>
+    </div>
+    <div class="tier" id="tier2">
         <h3>₹200 - ₹500</h3>
         <p>Unlock the "Donor+" rank on Discord.</p>
-        <a href="#" class="donate-btn" onclick="donate('₹200-₹500')">Subscribe Now</a>
-      </div>
-      <div class="tier" id="tier3">
+        <a href="#" class="donate-btn" onclick="handleSubscriptionClick('tier2')">Subscribe Now</a>
+    </div>
+    <div class="tier" id="tier3">
         <h3>₹1000</h3>
         <p>Achieve the legendary "Donor++" rank.</p>
-        <a href="#" class="donate-btn" onclick="donate('₹1000')">Subscribe Now</a>
-      </div>
+        <a href="#" class="donate-btn" onclick="handleSubscriptionClick('tier3')">Subscribe Now</a>
     </div>
-  </section>
 
-  <section id="leaderboard" class="leaderboard-section">
-    <h2>Top Donors</h2>
-    <ul>
-      <li><span class="name">Donor1</span> - ₹1500</li>
-      <li><span class="name">Donor2</span> - ₹1200</li>
-      <li><span class="name">Donor3</span> - ₹1000</li>
-      <li><span class="name">Donor4</span> - ₹800</li>
-      <li><span class="name">Donor5</span> - ₹700</li>
-    </ul>
-  </section>
+    <!-- One-Time Donation -->
+    <div class="one-time-donation">
+        <h3>One-Time Donation</h3>
+        <p>Want to make a one-time contribution? You can donate any amount above ₹500!</p>
+        <input type="number" id="oneTimeAmount" placeholder="Enter amount above ₹500" />
+        <a href="#" class="donate-btn" onclick="handleOneTimeDonationClick()">Donate One-Time</a>
+    </div>
 
-  <section id="contact" class="contact-section">
-    <h2>Contact Us</h2>
-    <p>Have any questions? Reach out to us via our Discord server or email.</p>
-  </section>
+    <!-- Top Donors Leaderboard -->
+    <div class="top-donors">
+        <h3>Top 5 Donors</h3>
+        <div class="donor">1. Donor1 - ₹1000</div>
+        <div class="donor">2. Donor2 - ₹500</div>
+        <div class="donor">3. Donor3 - ₹500</div>
+        <div class="donor">4. Donor4 - ₹200</div>
+        <div class="donor">5. Donor5 - ₹50</div>
+    </div>
 
-  <footer>
-    <p>&copy; 2024 Mallu Lifesteal. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function donate(tier) {
-      Swal.fire({
-        title: 'Donation Information',
-        text: `You selected the ${tier} tier! Proceed with payment through Cashfree UPI.`,
-        icon: 'info',
-        confirmButtonText: 'Proceed'
-      });
-    }
-  </script>
 </body>
 </html>
