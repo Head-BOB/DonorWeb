@@ -1,5 +1,6 @@
+// script.js
 function processSubscription(amount) {
-    let paymentLink = `https://cashfree.com/payment?amount=${amount}&recurring=true`;
+    let paymentLink = `https://cashfree.com/payment?amount=${amount}&recurring=true`; // Replace with your actual payment gateway link
     window.location.href = paymentLink;
 }
 
@@ -11,6 +12,6 @@ function processOneTimeDonation() {
         return;
     }
 
-    let paymentLink = `https://cashfree.com/payment?amount=${amount}&recurring=false`;
+    let paymentLink = `https://cashfree.com/payment?amount=${amount}&recurring=false`; // Replace with your payment gateway link
     window.location.href = paymentLink;
 }
